@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucas e Ceraso Advogados Associados | Dr. Alex Oliveira</title>
+<meta name="description" content="Assessoria jurídica, societária, contábil e financeira de excelência. Lucas e Ceraso Advogados Associados — OAB/MG 159.026">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #0F2B5B;
+    --gold:   #C9A227;
+    --gold-light: #D9B44A;
+    --white:  #FFFFFF;
+    --off-white: #F4F6FA;
+    --gray-100: #EEF1F7;
+    --gray-400: #8A93A8;
+    --gray-700: #3A4155;
+    --text:   #1A2340;
+    --font-display: 'Montserrat', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+    --max-w: 1200px;
+    --transition: 0.3s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 999;
+    background: rgba(15, 43, 91, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,162,39,0.2);
+    padding: 0 2rem;
+  }
+  .nav-inner {
+    max-width: var(--max-w); margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-weight: 700; font-size: 1rem;
+    color: var(--white); text-decoration: none;
+    letter-spacing: 0.04em; line-height: 1.3;
+  }
+  .nav-logo span { color: var(--gold); display: block; font-size: 0.65rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.82); text-decoration: none;
+    font-family: var(--font-display); font-size: 0.78rem;
+    font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    transition: color var(--transition);
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy) !important;
+    padding: 0.5rem 1.2rem; border-radius: 3px;
+    font-weight: 700 !important; font-size: 0.72rem !important;
+    letter-spacing: 0.08em !important;
+    transition: background var(--transition) !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0A1F44 0%, #0F2B5B 45%, #153470 100%);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding-top: 72px;
+  }
+  .hero-bg-pattern {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      radial-gradient(circle at 15% 85%, rgba(201,162,39,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 85% 15%, rgba(201,162,39,0.06) 0%, transparent 50%);
+  }
+  .hero-lines {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 79px,
+      rgba(255,255,255,0.025) 79px,
+      rgba(255,255,255,0.025) 80px
+    );
+  }
+  .hero-inner {
+    max-width: var(--max-w); margin: 0 auto; padding: 5rem 2rem;
+    display: grid; grid-template-columns: 1fr 420px; gap: 4rem; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-family: var(--font-display); font-size: 0.7rem;
+    font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.4rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 28px; height: 1px; background: var(--gold);
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 800; line-height: 1.12;
+    color: var(--white); margin-bottom: 1.6rem;
+    letter-spacing: -0.01em;
+  }
+  .hero-title em {
+    font-style: normal; color: var(--gold);
+    border-bottom: 2px solid rgba(201,162,39,0.4);
+  }
+  .hero-sub {
+    font-size: 1.05rem; color: rgba(255,255,255,0.72);
+    max-width: 540px; margin-bottom: 2.4rem; line-height: 1.75;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    padding: 0.9rem 2rem; border-radius: 3px;
+    font-family: var(--font-display); font-weight: 700; font-size: 0.82rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    text-decoration: none; transition: all var(--transition);
+    box-shadow: 0 4px 20px rgba(201,162,39,0.3);
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,162,39,0.4); }
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.35); color: var(--white);
+    padding: 0.9rem 2rem; border-radius: 3px;
+    font-family: var(--font-display); font-weight: 600; font-size: 0.82rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    text-decoration: none; transition: all var(--transition);
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-stats {
+    display: flex; gap: 2.5rem; padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat-num {
+    font-family: var(--font-display); font-size: 2rem; font-weight: 800;
+    color: var(--gold); line-height: 1;
+  }
+  .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.55); margin-top: 4px; letter-spacing: 0.04em; }
+  .hero-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,162,39,0.25);
+    border-radius: 8px; padding: 2.4rem;
+    backdrop-filter: blur(8px);
+  }
+  .hero-card-avatar {
+    width: 90px; height: 90px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold) 0%, #8a6b1a 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 1.8rem; font-weight: 800;
+    color: var(--navy); margin-bottom: 1.2rem;
+  }
+  .hero-card-name {
+    font-family: var(--font-display); font-size: 1.25rem;
+    font-weight: 700; color: var(--white); margin-bottom: 0.3rem;
+  }
+  .hero-card-title { font-size: 0.8rem; color: var(--gold); font-weight: 500; margin-bottom: 1.2rem; letter-spacing: 0.04em; }
+  .hero-card-badges { display: flex; flex-direction: column; gap: 0.5rem; }
+  .badge {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 0.78rem; color: rgba(255,255,255,0.7);
+  }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .hero-card-divider { height: 1px; background: rgba(255,255,255,0.1); margin: 1.2rem 0; }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 6rem 2rem; }
+  .section-inner { max-width: var(--max-w); margin: 0 auto; }
+  .section-label {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-family: var(--font-display); font-size: 0.68rem;
+    font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .section-label::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+  .section-title {
+    font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800; color: var(--navy); line-height: 1.2;
+    letter-spacing: -0.01em; margin-bottom: 1.2rem;
+  }
+  .section-desc { font-size: 1rem; color: var(--gray-700); max-width: 600px; line-height: 1.8; }
+
+  /* ── AREAS ── */
+  #areas { background: var(--off-white); }
+  .areas-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem; margin-top: 3.5rem;
+  }
+  .area-card {
+    background: var(--white); border-radius: 6px;
+    padding: 2rem 1.8rem;
+    border-left: 3px solid transparent;
+    box-shadow: 0 2px 16px rgba(15,43,91,0.06);
+    transition: all var(--transition);
+    position: relative; overflow: hidden;
+  }
+  .area-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px; background: linear-gradient(90deg, var(--gold), transparent);
+    transform: scaleX(0); transform-origin: left; transition: transform var(--transition);
+  }
+  .area-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(15,43,91,0.12); border-left-color: var(--gold); }
+  .area-card:hover::after { transform: scaleX(1); }
+  .area-icon {
+    width: 48px; height: 48px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3d7a 100%);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.2rem; font-size: 1.3rem;
+  }
+  .area-name {
+    font-family: var(--font-display); font-size: 1rem;
+    font-weight: 700; color: var(--navy); margin-bottom: 0.6rem;
+  }
+  .area-desc { font-size: 0.875rem; color: var(--gray-700); line-height: 1.7; }
+
+  /* ── SOBRE ── */
+  #sobre { background: var(--white); }
+  .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 3rem; }
+  .sobre-visual {
+    position: relative;
+  }
+  .sobre-img-wrap {
+    background: linear-gradient(135deg, #0A1F44, #0F2B5B);
+    border-radius: 8px; padding: 3rem 2.5rem;
+    position: relative; overflow: hidden;
+  }
+  .sobre-img-wrap::before {
+    content: ''; position: absolute; top: -30px; right: -30px;
+    width: 160px; height: 160px; border-radius: 50%;
+    background: rgba(201,162,39,0.12);
+  }
+  .sobre-avatar-large {
+    width: 110px; height: 110px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold) 0%, #7a5c12 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 2.2rem; font-weight: 800;
+    color: var(--navy); margin-bottom: 1.5rem;
+    border: 3px solid rgba(201,162,39,0.4);
+  }
+  .sobre-card-name {
+    font-family: var(--font-display); font-size: 1.4rem;
+    font-weight: 700; color: var(--white); margin-bottom: 0.3rem;
+  }
+  .sobre-card-sub { font-size: 0.82rem; color: var(--gold); margin-bottom: 1.5rem; }
+  .sobre-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag {
+    background: rgba(201,162,39,0.15); color: var(--gold-light);
+    padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.72rem;
+    font-weight: 600; letter-spacing: 0.04em;
+    border: 1px solid rgba(201,162,39,0.2);
+  }
+  .sobre-deco {
+    position: absolute; bottom: -1.5rem; right: -1.5rem;
+    background: var(--gold); border-radius: 6px; padding: 1rem 1.5rem;
+    box-shadow: 0 8px 24px rgba(201,162,39,0.35);
+  }
+  .sobre-deco-num {
+    font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--navy); line-height: 1;
+  }
+  .sobre-deco-label { font-size: 0.7rem; color: rgba(15,43,91,0.7); font-weight: 600; margin-top: 3px; }
+  .sobre-content { }
+  .sobre-bio { font-size: 0.95rem; color: var(--gray-700); line-height: 1.85; margin-bottom: 2rem; }
+  .sobre-formacao { margin-bottom: 2rem; }
+  .formacao-label {
+    font-family: var(--font-display); font-size: 0.7rem;
+    font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--navy); margin-bottom: 0.8rem;
+  }
+  .formacao-item {
+    display: flex; align-items: flex-start; gap: 0.7rem;
+    font-size: 0.9rem; color: var(--gray-700); margin-bottom: 0.5rem;
+  }
+  .formacao-item::before { content: '▸'; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+  .sobre-oab {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    background: var(--off-white); border: 1px solid var(--gray-100);
+    border-radius: 6px; padding: 0.9rem 1.4rem;
+    font-size: 0.82rem; color: var(--navy); font-weight: 600;
+    font-family: var(--font-display); letter-spacing: 0.04em;
+  }
+  .sobre-oab::before { content: '⚖'; font-size: 1rem; }
+
+  /* ── MISSÃO / VALORES ── */
+  #missao { background: var(--navy); position: relative; overflow: hidden; }
+  #missao::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 80% 50%, rgba(201,162,39,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .missao-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; position: relative; z-index: 1; }
+  .missao-box .section-title { color: var(--white); }
+  .missao-box .section-desc { color: rgba(255,255,255,0.7); max-width: 100%; }
+  .missao-quote {
+    margin-top: 2rem; padding: 1.5rem; border-left: 3px solid var(--gold);
+    background: rgba(255,255,255,0.04); border-radius: 0 6px 6px 0;
+    font-size: 1rem; color: rgba(255,255,255,0.85); line-height: 1.8; font-style: italic;
+  }
+  .valores-title {
+    font-family: var(--font-display); font-size: 0.7rem;
+    font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .valores-title::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+  .valores-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .valor-item {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px; padding: 1rem 1.2rem;
+    display: flex; align-items: center; gap: 0.7rem;
+    transition: all var(--transition);
+  }
+  .valor-item:hover { background: rgba(201,162,39,0.1); border-color: rgba(201,162,39,0.3); }
+  .valor-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .valor-name { font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.85); }
+
+  /* ── DIFERENCIAIS ── */
+  #diferenciais { background: var(--off-white); }
+  .dif-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3.5rem; }
+  .dif-card {
+    background: var(--white); border-radius: 8px;
+    padding: 2.2rem 1.8rem; text-align: center;
+    box-shadow: 0 2px 12px rgba(15,43,91,0.06);
+    transition: all var(--transition);
+  }
+  .dif-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(15,43,91,0.12); }
+  .dif-num {
+    font-family: var(--font-display); font-size: 3rem;
+    font-weight: 800; color: var(--gold);
+    line-height: 1; margin-bottom: 0.3rem;
+  }
+  .dif-num-label { font-size: 0.7rem; color: var(--gray-400); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.2rem; }
+  .dif-card-title { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; }
+  .dif-card-desc { font-size: 0.85rem; color: var(--gray-700); line-height: 1.7; }
+
+  /* ── CONTATO ── */
+  #contato { background: var(--white); }
+  .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3.5rem; align-items: start; }
+  .contato-info { }
+  .contato-intro { font-size: 1rem; color: var(--gray-700); line-height: 1.8; margin-bottom: 2.5rem; }
+  .contato-channel {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.2rem; border-radius: 6px;
+    background: var(--off-white); margin-bottom: 1rem;
+    text-decoration: none; color: inherit;
+    transition: all var(--transition);
+    border: 1px solid transparent;
+  }
+  .contato-channel:hover { border-color: var(--gold); background: rgba(201,162,39,0.06); }
+  .channel-icon {
+    width: 44px; height: 44px; border-radius: 8px;
+    background: var(--navy); display: flex; align-items: center;
+    justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+  }
+  .channel-label { font-size: 0.72rem; color: var(--gray-400); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  .channel-value { font-size: 0.95rem; color: var(--navy); font-weight: 600; margin-top: 2px; }
+  .contato-form-wrap {
+    background: var(--navy); border-radius: 8px;
+    padding: 2.5rem; position: relative; overflow: hidden;
+  }
+  .contato-form-wrap::before {
+    content: ''; position: absolute; bottom: -40px; right: -40px;
+    width: 180px; height: 180px; border-radius: 50%;
+    background: rgba(201,162,39,0.07); pointer-events: none;
+  }
+  .form-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+  .form-sub { font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-bottom: 1.8rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; color: rgba(255,255,255,0.6); margin-bottom: 0.4rem; text-transform: uppercase; }
+  .form-input, .form-textarea {
+    width: 100%; background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12); border-radius: 4px;
+    padding: 0.75rem 1rem; color: var(--white); font-family: var(--font-body);
+    font-size: 0.9rem; transition: border-color var(--transition);
+    outline: none;
+  }
+  .form-input:focus, .form-textarea:focus { border-color: var(--gold); background: rgba(255,255,255,0.1); }
+  .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .form-textarea { min-height: 100px; resize: vertical; }
+  .form-submit {
+    width: 100%; background: var(--gold); color: var(--navy);
+    border: none; border-radius: 4px; padding: 0.9rem;
+    font-family: var(--font-display); font-weight: 700; font-size: 0.85rem;
+    letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;
+    transition: all var(--transition); margin-top: 0.5rem;
+  }
+  .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #070F20; padding: 3.5rem 2rem 2rem;
+    border-top: 1px solid rgba(201,162,39,0.15);
+  }
+  .footer-inner { max-width: var(--max-w); margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand { }
+  .footer-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+  .footer-logo span { color: var(--gold); display: block; font-size: 0.65rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; margin-top: 2px; }
+  .footer-oab { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 0.6rem; }
+  .footer-slogan { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.7; margin-top: 1rem; max-width: 300px; font-style: italic; }
+  .footer-col-title { font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 0.6rem; }
+  .footer-links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.85rem; transition: color var(--transition); }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 1rem; }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+  .footer-copy strong { color: rgba(255,255,255,0.55); }
+  .footer-social { display: flex; gap: 0.8rem; }
+  .social-btn {
+    width: 36px; height: 36px; border-radius: 6px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; font-size: 0.9rem;
+    transition: all var(--transition); color: rgba(255,255,255,0.6);
+  }
+  .social-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+
+  /* ── WHATSAPP FLOAT ── */
+  .whatsapp-float {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 900;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #25D366; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+    text-decoration: none; transition: all var(--transition);
+    animation: pulse-green 2.5s ease-in-out infinite;
+  }
+  .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(37,211,102,0.55); }
+  .whatsapp-float svg { width: 28px; height: 28px; fill: white; }
+  @keyframes pulse-green {
+    0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.45); }
+    50% { box-shadow: 0 6px 32px rgba(37,211,102,0.7), 0 0 0 8px rgba(37,211,102,0.1); }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: rgba(10,28,60,0.98); padding: 1.5rem 2rem 2rem; gap: 1.2rem; }
+    .nav-links.open { display: flex; }
+    .hamburger { display: flex; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .sobre-grid, .missao-grid, .contato-grid, .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
+    .dif-grid { grid-template-columns: 1fr 1fr; }
+    .areas-grid { grid-template-columns: 1fr; }
+    .sobre-deco { display: none; }
+  }
+  @media (max-width: 560px) {
+    section { padding: 4rem 1.2rem; }
+    .dif-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+    .valores-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      Lucas e Ceraso
+      <span>Advogados Associados</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#areas">Áreas de Atuação</a></li>
+      <li><a href="#sobre">O Advogado</a></li>
+      <li><a href="#missao">Valores</a></li>
+      <li><a href="#diferenciais">Diferenciais</a></li>
+      <li><a href="#contato" class="nav-cta">Consulta</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Lucas e Ceraso Advogados Associados</div>
+      <h1 class="hero-title">
+        Estratégia Jurídica<br>e Gestão <em>Integrada</em><br>para Empresas
+      </h1>
+      <p class="hero-sub">
+        Soluções jurídicas, empresariais e financeiras com excelência e segurança. Direito, Contabilidade e Gestão ao seu lado para crescer com confiança.
+      </p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5531996086913" target="_blank" class="btn-primary">Falar com o Advogado</a>
+        <a href="#areas" class="btn-outline">Áreas de Atuação</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Anos de Experiência</div>
+        </div>
+        <div>
+          <div class="stat-num">OAB</div>
+          <div class="stat-label">MG 159.026</div>
+        </div>
+        <div>
+          <div class="stat-num">CRC</div>
+          <div class="stat-label">MG 089191/O-5</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-avatar">AO</div>
+      <div class="hero-card-name">Dr. Alex Oliveira</div>
+      <div class="hero-card-title">Advogado & Contador</div>
+      <div class="hero-card-badges">
+        <div class="badge"><span class="badge-dot"></span> OAB/MG 159.026 — desde 2015</div>
+        <div class="badge"><span class="badge-dot"></span> CRC/MG 089191/O-5</div>
+        <div class="badge"><span class="badge-dot"></span> Pós-graduado em Direito Público</div>
+        <div class="badge"><span class="badge-dot"></span> Pós-graduado em Direito Financeiro</div>
+      </div>
+      <div class="hero-card-divider"></div>
+      <div class="badge"><span class="badge-dot"></span> Ex-Diretor Administrativo — Elbras</div>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS DE ATUAÇÃO -->
+<section id="areas">
+  <div class="section-inner">
+    <div class="section-label">Especialidades</div>
+    <h2 class="section-title">Áreas de Atuação</h2>
+    <p class="section-desc">Atuação estratégica e integrada nas frentes jurídica, societária, contábil e financeira — cobrindo todo o ciclo de vida empresarial.</p>
+    <div class="areas-grid">
+      <div class="area-card">
+        <div class="area-icon">⚖️</div>
+        <div class="area-name">Direito Societário</div>
+        <p class="area-desc">Constituição, reestruturação e dissolução de sociedades. Elaboração de contratos sociais, acordos de sócios e gestão de conflitos societários com segurança jurídica.</p>
+      </div>
+      <div class="area-card">
+        <div class="area-icon">🏛️</div>
+        <div class="area-name">Direito Público</div>
+        <p class="area-desc">Assessoria em licitações, contratos administrativos, relações com o poder público e defesa dos direitos dos cidadãos e empresas perante o Estado.</p>
+      </div>
+      <div class="area-card">
+        <div class="area-icon">💼</div>
+        <div class="area-name">Direito Financeiro</div>
+        <p class="area-desc">Planejamento financeiro com suporte jurídico, recuperação de créditos, instrumentos contratuais financeiros e assessoria em operações bancárias e de capital.</p>
+      </div>
+      <div class="area-card">
+        <div class="area-icon">📊</div>
+        <div class="area-name">Controladoria & Contabilidade</div>
+        <p class="area-desc">Gestão contábil integrada ao negócio, relatórios gerenciais, controle de custos e compliance financeiro para uma tomada de decisão mais segura e eficiente.</p>
+      </div>
+      <div class="area-card">
+        <div class="area-icon">🏢</div>
+        <div class="area-name">Abertura e Estruturação de Empresas</div>
+        <p class="area-desc">Do zero à operação: planejamento do tipo societário ideal, registros, licenças, estrutura tributária e organizacional para empreendedores que buscam crescer com segurança.</p>
+      </div>
+      <div class="area-card">
+        <div class="area-icon">📈</div>
+        <div class="area-name">Assessoria Empresarial Estratégica</div>
+        <p class="area-desc">Visão integrada jurídica, contábil e financeira para orientar decisões estratégicas, otimizar processos e garantir a sustentabilidade e crescimento do negócio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="section-inner">
+    <div class="sobre-grid">
+      <div class="sobre-visual">
+        <div class="sobre-img-wrap">
+          <div class="sobre-avatar-large">AO</div>
+          <div class="sobre-card-name">Dr. Alex Lucas Oliveira</div>
+          <div class="sobre-card-sub">Advogado | Contador | Diretor Administrativo</div>
+          <div class="sobre-tags">
+            <span class="tag">Direito Societário</span>
+            <span class="tag">Direito Público</span>
+            <span class="tag">Direito Financeiro</span>
+            <span class="tag">Contabilidade</span>
+            <span class="tag">Gestão Empresarial</span>
+            <span class="tag">Controladoria</span>
+          </div>
+        </div>
+        <div class="sobre-deco">
+          <div class="sobre-deco-num">15+</div>
+          <div class="sobre-deco-label">Anos de<br>Experiência</div>
+        </div>
+      </div>
+      <div class="sobre-content">
+        <div class="section-label">O Advogado</div>
+        <h2 class="section-title">Dr. Alex Oliveira</h2>
+        <p class="sobre-bio">
+          Advogado inscrito na OAB/MG desde 2015, pós-graduado em Direito Público e Direito Financeiro, com sólida experiência em Direito Societário, Controladoria Financeira, Contabilidade Geral e Gestão de Custos.
+        </p>
+        <p class="sobre-bio">
+          Contador inscrito no CRC/MG sob nº 089191/O-5, possui mais de 15 anos de experiência na área administrativa e financeira, tendo atuado como Diretor Administrativo e Financeiro na indústria metalúrgica Elbras Eletrodos do Brasil.
+        </p>
+        <p class="sobre-bio">
+          Atua de forma estratégica na assessoria jurídica e empresarial, oferecendo soluções integradas nas áreas societária, financeira, contábil e de gestão — com foco em segurança jurídica, eficiência operacional e desenvolvimento sustentável dos negócios.
+        </p>
+        <div class="sobre-formacao">
+          <div class="formacao-label">Formação & Credenciais</div>
+          <div class="formacao-item">Bacharel em Direito</div>
+          <div class="formacao-item">Pós-graduação em Direito Público</div>
+          <div class="formacao-item">Pós-graduação em Direito Financeiro</div>
+          <div class="formacao-item">Contador — CRC/MG nº 089191/O-5</div>
+          <div class="formacao-item">Português (nativo) · Inglês (intermediário)</div>
+        </div>
+        <div class="sobre-oab">OAB/MG 159.026 — Inscrito desde 2015</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSÃO & VALORES -->
+<section id="missao">
+  <div class="section-inner">
+    <div class="missao-grid">
+      <div class="missao-box">
+        <div class="section-label" style="color:var(--gold)">Propósito</div>
+        <h2 class="section-title">Missão & Compromisso</h2>
+        <p class="section-desc">Nossa missão é clara e direta: entregar excelência técnica com personalização e ética em cada mandato.</p>
+        <div class="missao-quote">
+          "Prestar assessoria jurídica, societária, contábil e financeira de excelência, contribuindo para o crescimento seguro e sustentável de empresas e empreendedores, por meio de soluções técnicas, personalizadas e alinhadas às necessidades de cada cliente."
+        </div>
+      </div>
+      <div class="valores-box">
+        <div class="valores-title">Nossos Valores</div>
+        <div class="valores-grid">
+          <div class="valor-item"><span class="valor-dot"></span><span class="valor-name">Ética</span></div>
+          <div class="valor-item"><span class="valor-dot"></span><span class="valor-name">Transparência</span></div>
+          <div class="valor-item"><span class="valor-dot"></span><span class="valor-name">Excelência Técnica</span></div>
+          <div class="valor-item"><span class="valor-dot"></span><span class="valor-name">Responsabilidade</span></div>
+          <div class="valor-item"><span class="valor-dot"></span><span class="valor-name">Inovação</span></div>
+          <div class="valor-item"><span class="valor-dot"></span><span class="valor-name">Confidencialidade</span></div>
+          <div class="valor-item"><span class="valor-dot"></span><span class="valor-name">Resultados</span></div>
+          <div class="valor-item"><span class="valor-dot"></span><span class="valor-name">Atendimento Humanizado</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+  <div class="section-inner">
+    <div class="section-label">Por que nos escolher</div>
+    <h2 class="section-title">Nossos Diferenciais</h2>
+    <p class="section-desc">A combinação única de expertise jurídica e profundo conhecimento contábil-financeiro coloca nossos clientes em vantagem competitiva real.</p>
+    <div class="dif-grid">
+      <div class="dif-card">
+        <div class="dif-num">01</div>
+        <div class="dif-num-label">Diferencial</div>
+        <div class="dif-card-title">Visão Jurídico-Contábil Integrada</div>
+        <p class="dif-card-desc">Rara combinação de Advogado e Contador em um só profissional. Decisões empresariais com cobertura jurídica e financeira simultânea, sem ruídos de comunicação.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-num">02</div>
+        <div class="dif-num-label">Diferencial</div>
+        <div class="dif-card-title">Experiência Executiva Real</div>
+        <p class="dif-card-desc">Mais de 15 anos no mercado, incluindo passagem como Diretor Administrativo e Financeiro na indústria. Conhecemos os desafios reais de quem opera empresas.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-num">03</div>
+        <div class="dif-num-label">Diferencial</div>
+        <div class="dif-card-title">Atendimento Personalizado</div>
+        <p class="dif-card-desc">Cada cliente recebe estratégias sob medida. Sem soluções genéricas — trabalhamos próximos à sua realidade para entregar o resultado certo para o seu negócio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="section-inner">
+    <div class="section-label">Fale Conosco</div>
+    <h2 class="section-title">Entre em Contato</h2>
+    <p class="section-desc">Pronto para proteger e alavancar o seu negócio? Agende uma consulta e conheça como podemos ajudar.</p>
+    <div class="contato-grid">
+      <div class="contato-info">
+        <p class="contato-intro">
+          O primeiro passo para ter segurança jurídica e financeira no seu negócio começa com uma conversa. Entre em contato pelos canais abaixo — respondemos com agilidade.
+        </p>
+        <a href="https://wa.me/5531996086913" target="_blank" class="contato-channel">
+          <div class="channel-icon">💬</div>
+          <div>
+            <div class="channel-label">WhatsApp</div>
+            <div class="channel-value">(31) 99608-6913</div>
+          </div>
+        </a>
+        <a href="https://instagram.com/alexuai" target="_blank" class="contato-channel">
+          <div class="channel-icon">📸</div>
+          <div>
+            <div class="channel-label">Instagram</div>
+            <div class="channel-value">@alexuai</div>
+          </div>
+        </a>
+        <div class="contato-channel" style="cursor:default">
+          <div class="channel-icon">⚖️</div>
+          <div>
+            <div class="channel-label">Registro OAB</div>
+            <div class="channel-value">OAB/MG 159.026</div>
+          </div>
+        </div>
+        <div class="contato-channel" style="cursor:default">
+          <div class="channel-icon">📋</div>
+          <div>
+            <div class="channel-label">Registro CRC</div>
+            <div class="channel-value">CRC/MG 089191/O-5</div>
+          </div>
+        </div>
+      </div>
+      <div class="contato-form-wrap">
+        <div class="form-title">Solicite uma Consulta</div>
+        <div class="form-sub">Preencha abaixo e entraremos em contato</div>
+        <div class="form-group">
+          <label class="form-label">Nome completo</label>
+          <input type="text" class="form-input" placeholder="Seu nome">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Telefone / WhatsApp</label>
+          <input type="tel" class="form-input" placeholder="(00) 00000-0000">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Área de interesse</label>
+          <input type="text" class="form-input" placeholder="Ex.: Abertura de empresa, Direito Societário...">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Mensagem</label>
+          <textarea class="form-textarea" placeholder="Descreva brevemente sua necessidade..."></textarea>
+        </div>
+        <button class="form-submit" onclick="sendWhatsApp()">Enviar pelo WhatsApp</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          Lucas e Ceraso Advogados Associados
+          <span>Sociedade de Advogados</span>
+        </div>
+        <div class="footer-oab">Dr. Alex Oliveira — OAB/MG 159.026 · CRC/MG 089191/O-5</div>
+        <div class="footer-slogan">"Soluções Jurídicas, Empresariais e Financeiras com Excelência e Segurança."</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navegação</div>
+        <ul class="footer-links">
+          <li><a href="#areas">Áreas de Atuação</a></li>
+          <li><a href="#sobre">O Advogado</a></li>
+          <li><a href="#missao">Missão & Valores</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Especialidades</div>
+        <ul class="footer-links">
+          <li><a href="#areas">Direito Societário</a></li>
+          <li><a href="#areas">Direito Público</a></li>
+          <li><a href="#areas">Direito Financeiro</a></li>
+          <li><a href="#areas">Controladoria</a></li>
+          <li><a href="#areas">Gestão Empresarial</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 <strong>Lucas e Ceraso Advogados Associados</strong>. Todos os direitos reservados.</div>
+      <div class="footer-social">
+        <a href="https://wa.me/5531996086913" target="_blank" class="social-btn" aria-label="WhatsApp">💬</a>
+        <a href="https://instagram.com/alexuai" target="_blank" class="social-btn" aria-label="Instagram">📸</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5531996086913" target="_blank" class="whatsapp-float" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Smooth nav scroll offset
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({ top: target.offsetTop - 72, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // WhatsApp form sender
+  function sendWhatsApp() {
+    const name = document.querySelector('.form-input').value;
+    const phone = document.querySelectorAll('.form-input')[1].value;
+    const area = document.querySelectorAll('.form-input')[2].value;
+    const msg = document.querySelector('.form-textarea').value;
+    const text = `Olá Dr. Alex, meu nome é ${name || '(não informado)'}. Tenho interesse em: ${area || '(não informado)'}. ${msg || ''}`;
+    window.open(`https://wa.me/5531996086913?text=${encodeURIComponent(text)}`, '_blank');
+  }
+
+  // Scroll-reveal animation
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.area-card, .dif-card, .valor-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
